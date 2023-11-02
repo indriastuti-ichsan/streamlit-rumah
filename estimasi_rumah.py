@@ -1,7 +1,7 @@
 import pickle
 import streamlit as st
 
-model = pickle.load(open('estimasi_harga_rumah.sav','rb'))
+model1 = pickle.load(open('estimasi_harga_rumah.sav','rb'))
 
 st.title('Estimasi Harga Rumah')
 house_age = st.number_input ('Masukkan Umur Rumah')
@@ -13,7 +13,7 @@ longitude = st.number_input ('Masukkan Longitude Lokasi')
 predict = ''
 
 if st.button('Hitung Prediksi Harga Rumah'):
-    predict = model.predict(
+    predict = model1.predict(
         [[house_age, distance_to_MRT, number_cs, latitude, longitude]]
     )
     st.write('Prediksi Harga Rumah = ',predict)
